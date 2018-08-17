@@ -1,0 +1,27 @@
+<h1><%= @user.full_name %></h1>
+<label>Attack Power</label>
+<p><%= @user.attack_power %></P>
+<label>Defense Power</label>
+<p><%= @user.defense_power %></P>
+
+<% unless @user.dragons == [] %>
+      <label>Dragons</label>
+    <ul>
+      <% @user.dragons.each do |dragon|%>
+        <li><%= link_to dragon.name, dragon %></li>
+      <% end %>
+    </ul>
+<% else %>
+  <h3>This owner doesn't have any Dragons</h3>
+  <%= link_to 'Click here to Tame a dragon', new_dragon_path %>
+<% end %>
+
+
+
+
+
+<%= link_to 'Delete', @user, method: :delete %>
+
+
+
+<%= link_to 'Return to all Users', users_path %>

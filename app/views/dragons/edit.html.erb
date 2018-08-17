@@ -1,0 +1,13 @@
+<h1>Dragons#edit</h1>
+
+<%= form_with model: @dragon do |form| %>
+  <%= form.text_field :name, placeholder: :name %>
+  <br>
+  <%= form.text_field :breed, placeholder: :breed %>
+  <br>
+  <%= form.number_field :attack_power, placeholder: :attack_power %>
+  <br>
+  <%= form.collection_select(:user_id, @users, :id, :full_name ) %>
+  <br>
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,20 @@
+<h1><%= @dragon.name.capitalize %></h1>
+
+<label>breed</label>
+<p><%= @dragon.breed %></P>
+
+<label>Attack Power</label>
+<p><%= @dragon.attack_power %></P>
+
+<label><h2>Master</h2></label>
+
+<% unless @dragon.user == nil %>
+  <h3><%= link_to @dragon.user.full_name, @dragon.user %></h3>
+<% else %>
+  <h3>This dragon doesn't have a master</h3>
+  <%= link_to "Click here to assign a master", edit_dragon_path(@dragon) %>
+<% end %>
+
+<%= link_to "Delete", @dragon, :data => {:confirm => "You sure?", :method => "delete"} %>
+
+<%= link_to 'Return to all Dragons', dragons_path %>
